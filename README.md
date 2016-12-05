@@ -4,31 +4,33 @@ dispatch events between response chain
 
 ## How To Get Started
 
-dispatch event from cell
+send event from cell
 ```` objective-c
 - (void)handelButtonEvent:(UIButton *)sender {
-[self dispatchEventWithName:kEventName userInfo:@{@"title" : [sender titleForState:UIControlStateNormal]}];
+    [self sendEventWithName:kEventName userInfo:@{@"title" : [sender titleForState:UIControlStateNormal]}];
 }
 ````
 
-view controller will receive event
+cell's next responders will receive event
+
+code in view controller
 ```` objective-c
 - (BOOL)responderDidReceiveEvent:(NSString *)eventName userInfo:(id)userInfo {
-if ([eventName isEqualToString:kEventName]) {
-self.title = userInfo[@"title"];
-NSLog(@"ViewController - button click : %@", userInfo[@"title"]);
-}
-return YES;
+    if ([eventName isEqualToString:kEventName]) {
+        self.title = userInfo[@"title"];
+        NSLog(@"ViewController - button click : %@", userInfo[@"title"]);
+    }
+    return YES;
 }
 ````
 
-navigation controller will also receive event
+code in view navigation controller
 ```` objective-c
 - (BOOL)responderDidReceiveEvent:(NSString *)eventName userInfo:(id)userInfo {
-if ([eventName isEqualToString:kEventName]) {
-NSLog(@"NavigationViewController - button click : %@", userInfo[@"title"]);
-}
-return YES;
+    if ([eventName isEqualToString:kEventName]) {
+        NSLog(@"NavigationViewController - button click : %@", userInfo[@"title"]);
+    }
+    return YES;
 }
 ````
 
