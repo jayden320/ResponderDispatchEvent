@@ -34,6 +34,32 @@ code in view navigation controller
 }
 ````
 
+interface in Responder Dispatch Event
+
+```` objective-c
+@interface UIResponder (BDAddition)
+
+/**
+派发dispatch事件
+
+@param eventName 事件名
+@param userInfo 自定义参数
+*/
+- (void)sendEventWithName:(NSString *)eventName userInfo:(id)userInfo;
+
+
+/**
+响应dispatch事件
+
+@param eventName 事件名
+@param userInfo 自定义参数
+@return 是否继续往next responder派发事件
+*/
+- (BOOL)responderDidReceiveEvent:(NSString *)eventName userInfo:(id)userInfo;
+
+@end
+````
+
 ## Communication
 
 If you found a bug, and can provide steps to reliably reproduce it, open an issue.
