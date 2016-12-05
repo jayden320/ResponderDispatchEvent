@@ -40,7 +40,7 @@ interface in Responder Dispatch Event
 @interface UIResponder (BDAddition)
 
 /**
-派发dispatch事件
+发送事件
 
 @param eventName 事件名
 @param userInfo 自定义参数
@@ -49,7 +49,7 @@ interface in Responder Dispatch Event
 
 
 /**
-响应dispatch事件
+响应事件
 
 @param eventName 事件名
 @param userInfo 自定义参数
