@@ -10,14 +10,14 @@
 
 @implementation UIResponder (BDAddition)
 
-- (void)dispatchEventWithName:(NSString *)eventName userInfo:(id)userInfo {
-    [self.nextResponder handelEventWithName:eventName userInfo:userInfo];
+- (void)sendEventWithName:(NSString *)eventName userInfo:(id)userInfo {
+    [self.nextResponder dispatchEventWithName:eventName userInfo:userInfo];
 }
 
-- (void)handelEventWithName:(NSString *)eventName userInfo:(id)userInfo {
+- (void)dispatchEventWithName:(NSString *)eventName userInfo:(id)userInfo {
     BOOL shouldDispatchToNextResponder = [self responderDidReceiveEvent:eventName userInfo:userInfo];
     if (shouldDispatchToNextResponder) {
-        [self.nextResponder handelEventWithName:eventName userInfo:userInfo];
+        [self.nextResponder dispatchEventWithName:eventName userInfo:userInfo];
     }
 }
 

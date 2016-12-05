@@ -16,7 +16,7 @@
  @param eventName 事件名
  @param userInfo 自定义参数
  */
-- (void)dispatchEventWithName:(NSString *)eventName userInfo:(id)userInfo;
+- (void)sendEventWithName:(NSString *)eventName userInfo:(id)userInfo;
 
 
 /**

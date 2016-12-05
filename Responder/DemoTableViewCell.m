@@ -32,7 +32,7 @@ NSString * const kEventName = @"ButtonClick";
 }
 
 - (void)handelButtonEvent:(UIButton *)sender {
-    [self dispatchEventWithName:kEventName userInfo:@{@"title" : [sender titleForState:UIControlStateNormal]}];
+    [self sendEventWithName:kEventName userInfo:@{@"title" : [sender titleForState:UIControlStateNormal]}];
 }
 
 @end
